@@ -1,59 +1,31 @@
 package com.example.ibm_project.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Users implements Serializable {
+    @Setter
+    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (nullable = false, updatable = true)
+    @Column (nullable = false, updatable = false)
     private long id;
-    @Column (nullable = false, updatable = true)
+    @Column (nullable = false)
     private Role role;
-    @Column (nullable = false, updatable = true)
+    @Column (nullable = false)
     private String firstName;
-    @Column (nullable = false, updatable = true)
+    @Column (nullable = false)
     private String lastName;
-
-    public Users() {}
-
-    public Users(long id, Role role, String firstName, String lastName) {
-        this.id = id;
-        this.role = role;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+    //@OneToMany (targetEntity = Class.class, fetch = FetchType.LAZY)
+    //@JoinColumn(name = "id")
+    //private List<Class> enrolledClasses;
 }

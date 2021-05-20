@@ -4,81 +4,27 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
+import lombok.*;
+
 @Entity
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Class implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false, updatable = true)
+    @Column(nullable = false)
     private long id;
-    @Column (nullable = false, updatable = true)
+    @Column(nullable = false)
     private String name;
-    @Column (nullable = false, updatable = true)
+    @Column(nullable = false)
     private int year;
-    @Column (nullable = false, updatable = true)
+    @Column(nullable = false)
     private String section;
-    @OneToMany
-    @Column (nullable = false, updatable = true)
-    private List<Users> studentList;
-    @OneToOne
-    @Column (nullable = false, updatable = true)
-    private Classroom classroom;
+    //@OneToOne (targetEntity = Classroom.class, fetch = FetchType.LAZY)
+    //@JoinColumn(name = "id")
+    //@Column(nullable = false)
+    //private long classroomId;
 
-    public Class() {}
-
-    public Class(long id, String name, int year, String section, List<Users> studentList, Classroom classroom) {
-        this.id = id;
-        this.name = name;
-        this.year = year;
-        this.section = section;
-        this.studentList = studentList;
-        this.classroom = classroom;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    public String getSection() {
-        return section;
-    }
-
-    public void setSection(String section) {
-        this.section = section;
-    }
-
-    public List<Users> getStudentList() {
-        return studentList;
-    }
-
-    public void setStudentList(List<Users> studentList) {
-        this.studentList = studentList;
-    }
-
-    public Classroom getClassroom() {
-        return classroom;
-    }
-
-    public void setClassroom(Classroom classroom) {
-        this.classroom = classroom;
-    }
 }
