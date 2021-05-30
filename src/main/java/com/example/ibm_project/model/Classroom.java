@@ -1,17 +1,17 @@
 package com.example.ibm_project.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
+
+import lombok.*;
+
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table (name = "Classroom")
 public class Classroom implements Serializable {
     @Getter
     @Setter
@@ -25,7 +25,6 @@ public class Classroom implements Serializable {
     private String location;
     @Column(nullable = false)
     private int capacity;
-    //@ElementCollection(targetClass=Features.class)
-    //@Column(nullable = false)
-    //private List<Features> featureList;
+    @Column(nullable = false)
+    private String features;
 }

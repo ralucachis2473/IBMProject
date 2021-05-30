@@ -19,6 +19,7 @@ public class TeacherService {
         this.teacherRepo = teacherRepo;
     }
 
+    @Transactional
     public Class addClass(Class addedClass){
         return teacherRepo.save(addedClass);
     }

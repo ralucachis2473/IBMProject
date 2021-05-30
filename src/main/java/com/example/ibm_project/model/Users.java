@@ -1,31 +1,33 @@
 package com.example.ibm_project.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Setter
+@Getter
 public class Users implements Serializable {
-    @Setter
-    @Getter
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (nullable = false, updatable = false)
     private long id;
     @Column (nullable = false)
-    private Role role;
+    private String role;
     @Column (nullable = false)
     private String firstName;
     @Column (nullable = false)
     private String lastName;
-    //@OneToMany (targetEntity = Class.class, fetch = FetchType.LAZY)
-    //@JoinColumn(name = "id")
-    //private List<Class> enrolledClasses;
+
+    @OneToMany (targetEntity = Enrollment.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "classId", referencedColumnName = "id")
+    //@JsonIgnore
+
+    private List<Enrollment> classIdList;
 }
