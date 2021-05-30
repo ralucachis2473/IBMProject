@@ -1,0 +1,53 @@
+<p hidden> {{classes[0].id}} </p>
+<br>
+<h3>
+  <button routerLink="/new-course">New Course </button> 
+    <button routerLink="/add-student" class="btn btn-primary float-right">
+    Add Student
+  </button>
+  
+  <div class="clearfix"></div>
+</h3>
+
+<div class="table-responsive">
+  <table class="table table-bordered" id = "teacher-table" style="width: 100%">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Details</th>
+        <th>Remove</th>
+		<th>Edit</th>
+      </tr>
+    </thead>
+
+
+    <tbody>
+      <tr *ngFor="let class of classes">
+        <td>
+			<p>
+				{{class?.name}}
+			</p>
+        </td>
+       
+      
+	  
+	    <!-- change it to class.startHour or something similar -->
+        <td>
+          <p>
+		  {{class?.details}}
+		  </p>
+        </td>
+        <td>
+          <button type = "button" class="btn btn-danger" (click) = "onDeleteClass(class.id)">
+            Delete
+          </button>
+        </td>
+		<td>
+          <button routerLink="/edit" class="btn btn-danger">
+            Edit
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table> 
+</div>

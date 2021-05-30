@@ -1,0 +1,136 @@
+<p hidden>{{classes[0]?.id}}</p>
+
+<script>
+  class StickyNavigation {
+	
+	constructor() {
+		this.currentId = null;
+		this.currentTab = null;
+		this.tabContainerHeight = 70;
+		let self = this;
+		$(window).scroll(() => { this.onScroll(); });
+		$(window).resize(() => { this.onResize(); });
+	}
+	
+	onTabClick(event, element) {
+		event.preventDefault();
+		let scrollTop = $(element.attr('href')).offset().top - this.tabContainerHeight + 1;
+		$('html, body').animate({ scrollTop: scrollTop }, 600);
+	}
+	
+	onScroll() {
+		this.checkTabContainerPosition();
+    this.findCurrentTabSelector();
+	}
+	
+	onResize() {
+		if(this.currentId) {
+			this.setSliderCss();
+		}
+	}
+	
+	
+	
+
+	setSliderCss() {
+		let width = 0;
+		let left = 0;
+		if(this.currentTab) {
+			width = this.currentTab.css('width');
+			left = this.currentTab.offset().left;
+		}
+		$('.et-hero-tab-slider').css('width', width);
+		$('.et-hero-tab-slider').css('left', left);
+	}
+	
+}
+
+new StickyNavigation();
+</script>
+<style>
+
+
+
+  /* Overwrite default styles of hr */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* Set a style for the submit button */
+  .registerbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .registerbtn:hover {
+    opacity: 1;
+  }
+  
+  
+  </style>
+
+  <main class="et-main">
+    <section class="et-slide" id="tab-es6">
+      <h3>
+
+        <div class="row">
+          <div class="col">
+            <h2> <b>Available Courses</b></h2>
+            <div class="tabs">
+              <div class="tab" *ngFor="let class of classes">
+                <input type="checkbox" id="{{class.id}}">
+                <label class="tab-label" for="{{class.id}}">{{class?.name}}</label>
+                <div class="tab-content">
+                  <b>Year of study:</b> {{class?.year}} 
+				  <br>
+				  <b>Section:</b> {{class?.section}}
+                </div>
+                
+              </div>
+        
+            </div>
+          </div>
+        
+        </div>
+
+      </h3>
+    </section>
+    <section class="et-slide" id="tab-flexbox">
+      <h3>
+
+       
+
+      </h3>
+    </section>
+
+  </main>
+
+
+
+
+
+
+<!--
+<tbody>
+  <tr *ngFor="let event of events">
+    <td>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="event.title"
+        (keyup)="refresh.next()"
+      />
+    </td>
+    <td>
+      <button class="btn btn-danger" (click)="deleteEvent(event)">
+        Enroll
+      </button>
+    </td>
+-->

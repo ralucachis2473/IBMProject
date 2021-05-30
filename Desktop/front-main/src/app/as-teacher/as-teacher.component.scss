@@ -1,0 +1,71 @@
+$green: #3c8d0d;
+$gray: #ebf5f0;
+* {
+  font-family: 'Roboto', sans-serif;
+}
+.container {
+  position: absolute;
+  top:50%;
+  left:50%;
+  margin-left: -65px;
+  margin-top: -20px;
+  width: 300px;
+  height: 100px;
+  text-align: center;
+}
+
+.submit {
+  outline:none;
+  height: 40px;
+  text-align: center;
+  width: 130px;
+  border-radius:8px;
+  background: #5f9e8f;
+  border: 2px solid $green;
+  color:$gray;
+  letter-spacing:1px;
+  text-shadow:0;
+  margin: 4px 2px;
+
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+  &:hover {
+    color:white;
+    background: $green;
+  }
+  &:active {
+    //letter-spacing: 2px;
+    letter-spacing: 2px ;
+  }
+}
+
+button {
+  outline:none;
+  height: 40px;
+  text-align: center;
+  width: 130px;
+  border-radius:8px;
+  background: #5f9e8f;
+  border: 2px solid $green;
+  color:$gray;
+  letter-spacing:1px;
+  text-shadow:0;
+  margin: 4px 2px;
+
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+  &:hover {
+    color:white;
+    background: $green;
+  }
+  &:active {
+    //letter-spacing: 2px;
+    letter-spacing: 2px ;
+  }
+}
+
+.buttonX {
+  padding: 10px 5px;
+}

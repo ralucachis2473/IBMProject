@@ -1,0 +1,35 @@
+<p>edit works!</p>
+<html>
+<body>
+
+<div class="add-page">
+
+    <form #updateForm = "ngForm">
+		<input type="hidden" ngModel="1" name="id" id="id">
+        <label for="name">Course name:</label><br>
+        <input ngModel="{{editClass?.name}}" type="text" id="name" name="name"><br>
+        <label for="year">Year</label><br>
+        <input ngModel="{{editClass?.year}}" type="number" id="year" name="year" min="0" max="3"><br>
+        <label for="section">Section</label><br>
+        <input ngModel="{{editClass?.section}}" type="text" id="section" name="section"><br>
+		<label for="details">Details</label><br>
+        <input ngModel="{{editClass?.details}}" type="text" id="details" name="details"><br>
+		<!--
+        <label for="meeting-time-start">Start Time</label><br>
+        <input type="datetime-local" id="meeting-time-start"
+        name="meeting-time-start" value="2021-05-19T11:35"><br>
+        <label for="meeting-time-end">End Time</label><br>
+        <input type="datetime-local" id="meeting-time-end"
+        name="meeting-time-start" value="2021-05-19T11:35"><br>
+		-->
+       
+        
+        <br>
+        <button type="submit" [disabled]="!updateForm.valid" (click) = "onUpdateClass(updateForm.value)">Submit</button>
+      </form> 
+
+</div>
+
+
+</body>
+</html>

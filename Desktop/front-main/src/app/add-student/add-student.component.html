@@ -1,0 +1,30 @@
+<html>
+<body>
+<div>
+
+    <form #addStudentForm="ngForm" (ngSubmit)="onAddUser(addStudentForm)">
+        <label for="role">Role:</label><br>
+        <input ngModel type="text" id="role" name="role" value="student"><br>
+        <label for="firstName">First Name:</label><br>
+        <input ngModel type="text" id="firstName" name="firstName"><br>
+        <label for="lastName">Last Name:</label><br>
+        <input ngModel type="text" id="lastName" name="lastName"><br>
+		<!--
+        <label for="meeting-time-start">Start Time</label><br>
+        <input ngModel type="datetime-local" id="meeting-time-start"
+        name="meeting-time-start" value="2021-05-19T11:35"><br>
+        <label for="meeting-time-end">End Time</label><br>
+        <input ngModel type="datetime-local" id="meeting-time-end"
+        name="meeting-time-start" value="2021-05-19T11:35"><br>
+		-->
+       
+        
+        <br>
+        <button [disabled]="addStudentForm.invalid" type="submit" value="Submit">Submit</button>
+        <button type="reset" >Reset</button>
+      </form> 
+</div>
+
+
+</body>
+</html>
